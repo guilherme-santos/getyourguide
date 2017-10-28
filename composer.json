@@ -1,0 +1,9 @@
+{
+    "autoload": {
+        "psr-4": {"GetYourGuide\\": "src/"}
+    },
+    "require": {
+        "symfony/console": "^3.3",
+        "guzzlehttp/guzzle": "~6.0"
+    }
+}
