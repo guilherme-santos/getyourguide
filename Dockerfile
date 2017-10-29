@@ -14,7 +14,7 @@ WORKDIR /usr/share/getyourguide
 # First copy just composer.{json,lock} because if we change some file in our project
 # we don't need to install all dependencies again, only if we change composer files related.
 COPY composer.json composer.lock ./
-RUN composer install
+RUN composer install --no-dev --optimize-autoloader
 
 # Now we can copy all files
 COPY . ./
