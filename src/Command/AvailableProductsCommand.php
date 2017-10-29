@@ -31,7 +31,7 @@ class AvailableProductsCommand extends Command
     {
         $this->setName('available-products')
             ->setDescription('Available products for specific date')
-            ->setHelp('This command allows you to get list of available products to your trip based on dates of you trip and the number of travelers with you.')
+            ->setHelp('This command allows you to get list of available products to your trip based on your dates and number of travelers with you.')
             ->addArgument('api-endpoint', InputArgument::REQUIRED, 'API endpoint to search for products')
             ->addArgument('start-time', InputArgument::REQUIRED, sprintf('Start date and time of your trip (Format: %s)', self::DATE_TIME_FORMAT))
             ->addArgument('end-time', InputArgument::REQUIRED, sprintf('End date and time of your trip (Format: %s)', self::DATE_TIME_FORMAT))
@@ -68,10 +68,10 @@ class AvailableProductsCommand extends Command
 
         $httpClient = new Client();
         // In case of invalid URL or if it was not possible access the endpoint, it'll throw an exception
-        // but it's ok since, these exceptions are in general clear
+        // but it's ok since, these exceptions are in general clear what's going on
         $response = $httpClient->get($input->getArgument('api-endpoint'));
         if ($response->getStatusCode() !== 200) {
-            throw new \Exception(sprintf('An error occurred comunicating with API endpoint: %s %s', $response->getStatusCode(), $response->getReasonPhrase()));
+            throw new \Exception(sprintf('An error occurred communicating with API endpoint: %s %s', $response->getStatusCode(), $response->getReasonPhrase()));
         }
         if (!in_array('application/json', $response->getHeader('Content-Type'))) {
             // Should I do something?
