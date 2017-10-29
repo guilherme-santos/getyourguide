@@ -1,4 +1,12 @@
 {
+    "name": "guilherme-santos/getyourguide",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Guilherme Silveira dos Santos",
+            "email": "xguiga@gmail.com"
+        }
+    ],
     "autoload": {
         "psr-4": {"GetYourGuide\\": "src/"}
     },
